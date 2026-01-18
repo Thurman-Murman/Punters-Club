@@ -224,6 +224,85 @@
             color: #2ecc71;
         }
         
+        .history-card {
+            background: rgba(44, 62, 80, 0.3);
+        }
+        
+        .table-wrapper {
+            overflow-x: auto;
+        }
+        
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        
+        .history-table th,
+        .history-table td {
+            padding: 12px 8px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .history-table th {
+            color: #888;
+            font-weight: 500;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .history-table td.week {
+            color: #888;
+            font-weight: 600;
+        }
+        
+        .history-table td.picker {
+            color: #3498db;
+            font-weight: 500;
+        }
+        
+        .history-table td.bet-desc {
+            color: #fff;
+            max-width: 150px;
+        }
+        
+        .history-table td.odds {
+            color: #9b59b6;
+            font-weight: 500;
+        }
+        
+        .result-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .result-badge.win {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+        }
+        
+        .result-badge.loss {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+        }
+        
+        .result-badge.pending {
+            background: rgba(241, 196, 15, 0.2);
+            color: #f1c40f;
+        }
+        
+        .no-history {
+            color: #666;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        
         footer {
             text-align: center;
             padding: 30px 0;
@@ -284,6 +363,26 @@
             <p class="notes-content" id="notesContent"></p>
         </div>
 
+        <div class="card history-card" id="historyCard">
+            <h2 class="section-title">📜 Past Bets</h2>
+            <div class="table-wrapper">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Wk</th>
+                            <th>Picker</th>
+                            <th>Bet</th>
+                            <th>Odds</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                    </tbody>
+                </table>
+            </div>
+            <p class="no-history" id="noHistory">No past bets yet - check back after Week 1!</p>
+        </div>
+
         <footer>
             <p>Last updated: <span id="lastUpdated"></span></p>
         </footer>
@@ -304,7 +403,7 @@
         
         // 🎯 THIS WEEK'S BET (UPDATE WHEN PICKER CHOOSES)
         bet: {
-            description: "Waiting for pick... ",  // e.g. "Gold Coast R4 #7 Wymark - place - 3.15pm"
+            description: "Waiting for pick...",  // e.g. "Penrith Panthers -4.5 vs Cowboys"
             odds: 0                               // e.g. 2.50 (just the number, no $)
         },
         
@@ -330,6 +429,15 @@
         
         // Any notes or announcements (leave empty "" for no notes)
         notes: "$25 per week. Bank details: BSB 633-000 ACC 159785823",
+        
+        // 📜 PAST BETS HISTORY (Add each week's result here)
+        // Format: { bet: "description", odds: 1.90, result: "win" or "loss" or "pending" }
+        // Week 1 = index 0, Week 2 = index 1, etc.
+        pastBets: [
+            { bet: "Gold Coast - Wymark Place", odds: 2.88, result: "loss" },
+            // { bet: "Storm -4.5 vs Broncos", odds: 1.91, result: "win" },
+            // { bet: "Panthers ML vs Cowboys", odds: 1.45, result: "loss" },
+        ],
         
         // Last updated date (for your reference)
         lastUpdated: "17 Jan 2026"
@@ -425,6 +533,30 @@
         document.getElementById('notesContent').textContent = CONFIG.notes;
     } else {
         notesCard.style.display = 'none';
+    }
+    
+    // Build past bets history table
+    const historyBody = document.getElementById('historyBody');
+    const noHistory = document.getElementById('noHistory');
+    const historyCard = document.getElementById('historyCard');
+    
+    if (CONFIG.pastBets && CONFIG.pastBets.length > 0) {
+        noHistory.style.display = 'none';
+        CONFIG.pastBets.forEach((bet, index) => {
+            const weekNum = index + 1;
+            const picker = CONFIG.rotation[(weekNum - 1) % CONFIG.rotation.length];
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td class="week">${weekNum}</td>
+                <td class="picker">${picker}</td>
+                <td class="bet-desc">${bet.bet}</td>
+                <td class="odds">$${bet.odds.toFixed(2)}</td>
+                <td><span class="result-badge ${bet.result}">${bet.result}</span></td>
+            `;
+            historyBody.appendChild(row);
+        });
+    } else {
+        document.querySelector('.table-wrapper').style.display = 'none';
     }
     </script>
 </body>
