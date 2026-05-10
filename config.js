@@ -12,7 +12,7 @@ const CONFIG = {
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Waiting for pick...",
+    description: "Hobart Quaddie: R5 (5,8,10,11), R6 (2,7,8,11), R7 (1,4,6,8), R8 (1,2,4,6) $25 Flexi 9.7% + Antisocial Win (Ballarat R5) $25",
     odds: 0
   },
 
