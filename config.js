@@ -12,8 +12,8 @@ const CONFIG = {
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Waiting for pick... ",
-    odds: 0
+    description: "Under The Limit - Home Hill R6",
+    odds: 4
   },
 
   // Stake per week
