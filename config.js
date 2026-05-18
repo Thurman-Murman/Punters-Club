@@ -8,12 +8,12 @@ const CONFIG = {
   startDate: new Date(2026, 0, 11),
 
   // 💰 Kitty
-  kitty: 5730.00,
+  kitty: 5780.00,
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Under The Limit - Home Hill R6",
-    odds: 4
+    description: "Waiting for Pick ",
+    odds: 0
   },
 
   // Stake per week
@@ -26,11 +26,11 @@ const CONFIG = {
     "Pukey": false,
     "Drowley": true,
     "Semp": false,
-    "Perka": true,
-    "Becksy": true,
-    "Catta": true,
+    "Perka": false,
+    "Becksy": false,
+    "Catta": false,
     "Robo": false,
-    "Ruey": true
+    "Ruey": false
   },
 
   // Rotation order
@@ -57,7 +57,8 @@ const CONFIG = {
     { bet: "4-Leg Multi: Plaintiff Win (Randwick R4), Angel Capital PLC (Randwick R9), Balance The Books Win (Eagle Farm R2), Olympian PLC (Randwick R5)", odds: 9.5, result: "loss" },
     { bet: "5-Leg Multi: Mcwoody Win (Morphettville R3), Silvasista Win (Flemington R6), Geelong H2H (vs Port), Fremantle H2H (vs Carlton), St Kilda H2H (vs West Coast)", odds: 10.59, result: "loss" },
     { bet: "7-Leg Multi: Pistons H2H (vs Magic), Cavaliers H2H (vs Raptors), Lakers H2H (vs Rockets), Lions H2H (vs Essendon), West Coast H2H (vs Richmond), Geelong H2H (vs North), St Kilda H2H (vs Carlton)", odds: 18.81, result: "loss" },
-    { bet: "Hobart Quaddie: R5 (5,8,10,11), R6 (2,7,8,11), R7 (1,4,6,8), R8 (1,2,4,6) $25 Flexi 9.7% + Antisocial Win (Ballarat R5) $25", odds: 8, result: "win" }
+    { bet: "Hobart Quaddie: R5 (5,8,10,11), R6 (2,7,8,11), R7 (1,4,6,8), R8 (1,2,4,6) $25 Flexi 9.7% + Antisocial Win (Ballarat R5) $25", odds: 8, result: "win" },
+    { bet: "Under The Limit - Home Hill R6", odds: 4, result: "loss" }
   ],
 
   lastUpdated: "17 Jan 2026"
