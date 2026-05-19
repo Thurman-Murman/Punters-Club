@@ -27,9 +27,9 @@ const CONFIG = {
     "Drowley": true,
     "Semp": false,
     "Perka": false,
-    "Becksy": false,
+    "Becksy": true,
     "Catta": false,
-    "Robo": false,
+    "Robo": true,
     "Ruey": false
   },
 
