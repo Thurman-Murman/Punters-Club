@@ -8,7 +8,7 @@ const CONFIG = {
   startDate: new Date(2026, 0, 11),
 
   // 💰 Kitty
-  kitty: 6055.00,
+  kitty: 6230.00,
 
   // 🎯 This Week's Bet
   bet: {
@@ -58,7 +58,9 @@ const CONFIG = {
     { bet: "5-Leg Multi: Mcwoody Win (Morphettville R3), Silvasista Win (Flemington R6), Geelong H2H (vs Port), Fremantle H2H (vs Carlton), St Kilda H2H (vs West Coast)", odds: 10.59, result: "loss" },
     { bet: "7-Leg Multi: Pistons H2H (vs Magic), Cavaliers H2H (vs Raptors), Lakers H2H (vs Rockets), Lions H2H (vs Essendon), West Coast H2H (vs Richmond), Geelong H2H (vs North), St Kilda H2H (vs Carlton)", odds: 18.81, result: "loss" },
     { bet: "Hobart Quaddie: R5 (5,8,10,11), R6 (2,7,8,11), R7 (1,4,6,8), R8 (1,2,4,6) $25 Flexi 9.7% + Antisocial Win (Ballarat R5) $25", odds: 8, result: "win" },
-    { bet: "Under The Limit - Home Hill R6", odds: 4, result: "loss" }
+    { bet: "Under The Limit - Home Hill R6", odds: 4, result: "loss" },
+    { bet: "Forgot", odds: 2, result: "loss" },
+    { bet: "Gumdrops - Eagle Farm", odds: 9.5, result: "loss" }
   ],
 
   lastUpdated: "17 Jan 2026"
