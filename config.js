@@ -12,8 +12,8 @@ const CONFIG = {
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Waiting for Pick ",
-    odds: 0
+    description: "GWS, Brisbane, North Melbourne",
+    odds: 3.42
   },
 
   // Stake per week
@@ -23,14 +23,14 @@ const CONFIG = {
   members: {
     "Smitty": false,
     "Bizza": false,
-    "Pukey": false,
+    "Pukey": true,
     "Drowley": true,
     "Semp": false,
-    "Perka": false,
-    "Becksy": false,
-    "Catta": false,
+    "Perka": true,
+    "Becksy": true,
+    "Catta": true,
     "Robo": false,
-    "Ruey": false
+    "Ruey": true
   },
 
   // Rotation order
