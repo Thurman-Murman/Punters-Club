@@ -8,7 +8,7 @@ const CONFIG = {
   startDate: new Date(2026, 0, 18),
 
   // 💰 Kitty
-  kitty: 6750.00,
+  kitty: 6875.00,
 
   // 🎯 This Week's Bet
   bet: {
@@ -23,10 +23,10 @@ const CONFIG = {
   members: {
     "Smitty": false,
     "Bizza": false,
-    "Pukey": true,
+    "Pukey": false,
     "Drowley": true,
     "Semp": false,
-    "Perka": true,
+    "Perka": false,
     "Becksy": true,
     "Catta": true,
     "Robo": false,
