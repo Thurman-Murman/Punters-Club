@@ -12,8 +12,8 @@ const CONFIG = {
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Waiting for pick",
-    odds: 0
+    description: "5-Leg Place Multi: Losesomewinmore (Flemington R7), Mongolian Gobi (Morphettville R9), Midnight Dynamite (Randwick R9), Flying Done (Flemington R9), Bustling (Randwick R8)",
+    odds: 10.09
   },
 
   // Stake per week
