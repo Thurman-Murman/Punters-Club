@@ -8,12 +8,12 @@ const CONFIG = {
   startDate: new Date(2026, 0, 18),
 
   // 💰 Kitty
-  kitty: 7125.00,
+  kitty: 7200.00,
 
   // 🎯 This Week's Bet
   bet: {
-    description: "7-Leg Multi: Carlton H2H (vs West Coast), Collingwood H2H (vs Richmond), Adelaide Crows H2H (vs Port), England Win-Draw-Win (vs Panama), Croatia Win-Draw-Win (vs Ghana), North Melbourne H2H (vs Essendon), Fremantle H2H (vs Gold Coast)",
-    odds: 6.2
+    description: "3-Leg Multi: Omolong (Rosehill R3), Big Red Tequila (Rosehill R4), Hello Captain (Rosehill R5)",
+    odds: 5.63
   },
 
   // Stake per week
@@ -62,7 +62,8 @@ const CONFIG = {
     { bet: "Gumdrops - Eagle Farm", odds: 9.5, result: "loss" },
     { bet: "GWS, Brisbane, North Melbourne", odds: 3.42, result: "loss" },
     { bet: "GWS, Brisbane, North Melbourne", odds: 3.42, result: "loss" },
-    { bet: "5-Leg Place Multi: Losesomewinmore (Flemington R7), Mongolian Gobi (Morphettville R9), Midnight Dynamite (Randwick R9), Flying Done (Flemington R9), Bustling (Randwick R8)", odds: 10.09, result: "loss" }
+    { bet: "5-Leg Place Multi: Losesomewinmore (Flemington R7), Mongolian Gobi (Morphettville R9), Midnight Dynamite (Randwick R9), Flying Done (Flemington R9), Bustling (Randwick R8)", odds: 10.09, result: "loss" },
+    { bet: "7-Leg Multi: Carlton H2H (vs West Coast), Collingwood H2H (vs Richmond), Adelaide Crows H2H (vs Port), England Win-Draw-Win (vs Panama), Croatia Win-Draw-Win (vs Ghana), North Melbourne H2H (vs Essendon), Fremantle H2H (vs Gold Coast)", odds: 6.2, result: "loss" }
   ],
 
   lastUpdated: "17 Jan 2026"
