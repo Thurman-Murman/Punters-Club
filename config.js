@@ -8,12 +8,12 @@ const CONFIG = {
   startDate: new Date(2026, 0, 18),
 
   // 💰 Kitty
-  kitty: 7650.00,
+  kitty: 7725.00,
 
   // 🎯 This Week's Bet
   bet: {
-    description: "3-Leg Multi: Omolong (Rosehill R3), Big Red Tequila (Rosehill R4), Hello Captain (Rosehill R5)",
-    odds: 5.63
+    description: "3-Leg Multi: Tazima Win (Randwick R7), Decalogue Win (Caulfield R6), Bellatrix Star Place (Caulfield R7)",
+    odds: 27.02
   },
 
   // Stake per week
