@@ -8,12 +8,12 @@ const CONFIG = {
   startDate: new Date(2026, 0, 18),
 
   // 💰 Kitty
-  kitty: 7950.00,
+  kitty: 8250.00,
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Waiting for pick.. ",
-    odds: 0
+    description: "16-Leg SGM+: North v Melb (Sheezel 25+ Disp, Fitzgerald 25+ Disp, Bowey 20+ Disp, Sparrow 20+ Disp, van Rooyen 2+ Gls, Larkey 2+ Gls, Curtis 1+ Gl, Fritsch 1+ Gl) + Pies v Carlton (N.Daicos 30+ Disp, Walsh 25+ Disp, J.Daicos 20+ Disp, Cripps 22+ Disp, McStay 2+ Gls, Membrey 1+ Gl, McKay 1+ Gl, Kemp 1+ Gl)",
+    odds: 43.87
   },
 
   // Stake per week
