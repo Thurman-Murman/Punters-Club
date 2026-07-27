@@ -8,7 +8,7 @@ const CONFIG = {
   startDate: new Date(2026, 0, 18),
 
   // 💰 Kitty
-  kitty: 8275.00,
+  kitty: 1770.00,
 
   // 🎯 This Week's Bet
   bet: {
@@ -66,7 +66,8 @@ const CONFIG = {
     { bet: "7-Leg Multi: Carlton H2H (vs West Coast), Collingwood H2H (vs Richmond), Adelaide Crows H2H (vs Port), England Win-Draw-Win (vs Panama), Croatia Win-Draw-Win (vs Ghana), North Melbourne H2H (vs Essendon), Fremantle H2H (vs Gold Coast)", odds: 6.2, result: "loss" },
     { bet: "3-Leg Multi: Omolong (Rosehill R3), Big Red Tequila (Rosehill R4), Hello Captain (Rosehill R5)", odds: 9, result: "win" },
     { bet: "3-Leg Multi: Tazima Win (Randwick R7), Decalogue Win (Caulfield R6), Bellatrix Star Place (Caulfield R7)", odds: 27, result: "loss" },
-    { bet: "16-Leg SGM+: North v Melb (Sheezel 25+ Disp, Fitzgerald 25+ Disp, Bowey 20+ Disp, Sparrow 20+ Disp, van Rooyen 2+ Gls, Larkey 2+ Gls, Curtis 1+ Gl, Fritsch 1+ Gl) + Pies v Carlton (N.Daicos 30+ Disp, Walsh 25+ Disp, J.Daicos 20+ Disp, Cripps 22+ Disp, McStay 2+ Gls, Membrey 1+ Gl, McKay 1+ Gl, Kemp 1+ Gl)", odds: 43.87, result: "loss" }
+    { bet: "16-Leg SGM+: North v Melb (Sheezel 25+ Disp, Fitzgerald 25+ Disp, Bowey 20+ Disp, Sparrow 20+ Disp, van Rooyen 2+ Gls, Larkey 2+ Gls, Curtis 1+ Gl, Fritsch 1+ Gl) + Pies v Carlton (N.Daicos 30+ Disp, Walsh 25+ Disp, J.Daicos 20+ Disp, Cripps 22+ Disp, McStay 2+ Gls, Membrey 1+ Gl, McKay 1+ Gl, Kemp 1+ Gl)", odds: 43.87, result: "loss" },
+    { bet: "The Return of Max King", odds: 5, result: "loss" }
   ],
 
   lastUpdated: "17 Jan 2026"
