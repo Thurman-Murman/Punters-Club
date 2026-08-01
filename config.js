@@ -8,12 +8,12 @@ const CONFIG = {
   startDate: new Date(2026, 0, 18),
 
   // 💰 Kitty
-  kitty: 1770.00,
+  kitty: 1840.00,
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Waiting for the pick... ",
-    odds: 0
+    description: "Flemington R3 - #4 - Star of India",
+    odds: 4.2
   },
 
   // Stake per week
