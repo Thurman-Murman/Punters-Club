@@ -12,8 +12,8 @@ const CONFIG = {
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Waiting for pick.... ",
-    odds: 0
+    description: "4-Leg Multi: Steel Will Win (Rosehill R2), Hawker Hall Win (Rosehill R7), Exceed The Sale Win (Doomben R2), Missapprehend PLC (Caulfield R3)",
+    odds: 22
   },
 
   // Stake per week
