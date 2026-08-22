@@ -12,8 +12,8 @@ const CONFIG = {
 
   // 🎯 This Week's Bet
   bet: {
-    description: "4-Leg Multi: Steel Will Win (Rosehill R2), Hawker Hall Win (Rosehill R7), Exceed The Sale Win (Doomben R2), Missapprehend PLC (Caulfield R3)",
-    odds: 22
+    description: "7-Leg AFL Multi: Fremantle H2H, Geelong H2H, Adelaide H2H, Port Adelaide H2H, North Melbourne H2H, Hawthorn H2H, Melbourne H2H",
+    odds: 10.7
   },
 
   // Stake per week
@@ -69,7 +69,8 @@ const CONFIG = {
     { bet: "16-Leg SGM+: North v Melb (Sheezel 25+ Disp, Fitzgerald 25+ Disp, Bowey 20+ Disp, Sparrow 20+ Disp, van Rooyen 2+ Gls, Larkey 2+ Gls, Curtis 1+ Gl, Fritsch 1+ Gl) + Pies v Carlton (N.Daicos 30+ Disp, Walsh 25+ Disp, J.Daicos 20+ Disp, Cripps 22+ Disp, McStay 2+ Gls, Membrey 1+ Gl, McKay 1+ Gl, Kemp 1+ Gl)", odds: 43.87, result: "loss" },
     { bet: "The Return of Max King", odds: 5, result: "loss" },
     { bet: "Star of India", odds: 4.2, result: "loss" },
-    { bet: "Tarzino Rosehill", odds: 5, result: "loss" }
+    { bet: "Tarzino Rosehill", odds: 5, result: "loss" },
+    { bet: "4-Leg Multi: Steel Will Win (Rosehill R2), Hawker Hall Win (Rosehill R7), Exceed The Sale Win (Doomben R2), Missapprehend PLC (Caulfield R3)", odds: 42, result: "loss" }
   ],
 
   lastUpdated: "17 Jan 2026"
