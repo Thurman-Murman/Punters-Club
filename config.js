@@ -8,12 +8,12 @@ const CONFIG = {
   startDate: new Date(2026, 0, 18),
 
   // 💰 Kitty
-  kitty: 2545.00,
+  kitty: 2970.00,
 
   // 🎯 This Week's Bet
   bet: {
-    description: "7-Leg AFL Multi: Fremantle H2H, Geelong H2H, Adelaide H2H, Port Adelaide H2H, North Melbourne H2H, Hawthorn H2H, Melbourne H2H",
-    odds: 10.7
+    description: "Waiting for pick.... ",
+    odds: 0
   },
 
   // Stake per week
@@ -70,7 +70,8 @@ const CONFIG = {
     { bet: "The Return of Max King", odds: 5, result: "loss" },
     { bet: "Star of India", odds: 4.2, result: "loss" },
     { bet: "Tarzino Rosehill", odds: 5, result: "loss" },
-    { bet: "4-Leg Multi: Steel Will Win (Rosehill R2), Hawker Hall Win (Rosehill R7), Exceed The Sale Win (Doomben R2), Missapprehend PLC (Caulfield R3)", odds: 42, result: "loss" }
+    { bet: "4-Leg Multi: Steel Will Win (Rosehill R2), Hawker Hall Win (Rosehill R7), Exceed The Sale Win (Doomben R2), Missapprehend PLC (Caulfield R3)", odds: 42, result: "loss" },
+    { bet: "7-Leg AFL Multi: Fremantle H2H, Geelong H2H, Adelaide H2H, Port Adelaide H2H, North Melbourne H2H, Hawthorn H2H, Melbourne H2H", odds: 10.7, result: "loss" }
   ],
 
   lastUpdated: "17 Jan 2026"
