@@ -8,12 +8,12 @@ const CONFIG = {
   startDate: new Date(2026, 0, 18),
 
   // 💰 Kitty
-  kitty: 2970.00,
+  kitty: 3045.00,
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Waiting for pick.... ",
-    odds: 0
+    description: "5-Leg Multi: Exceed The Sale PLC (Eagle Farm R4), Gram Win (Eagle Farm R6), Blue Door Win (Rosehill R8), Althoff Win (Rosehill R9), Yellow Jersey PLC (Caulfield R9)",
+    odds: 22.03
   },
 
   // Stake per week
