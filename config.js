@@ -8,12 +8,12 @@ const CONFIG = {
   startDate: new Date(2026, 0, 18),
 
   // 💰 Kitty
-  kitty: 3045.00,
+  kitty: 3125.00,
 
   // 🎯 This Week's Bet
   bet: {
-    description: "5-Leg Multi: Exceed The Sale PLC (Eagle Farm R4), Gram Win (Eagle Farm R6), Blue Door Win (Rosehill R8), Althoff Win (Rosehill R9), Yellow Jersey PLC (Caulfield R9)",
-    odds: 22.03
+    description: "8-Leg SGM+: Swans v Lions (Lions H2H, Dunkley 20+ Disp, Cameron 1+ Gl, Curnow 2+ Gls) + Crows v Bulldogs (Rankine 20+ Disp, Dawson 20+ Disp, Thilthorpe 2+ Gls, Crows H2H",
+    odds: 6.31
   },
 
   // Stake per week
@@ -71,7 +71,8 @@ const CONFIG = {
     { bet: "Star of India", odds: 4.2, result: "loss" },
     { bet: "Tarzino Rosehill", odds: 5, result: "loss" },
     { bet: "4-Leg Multi: Steel Will Win (Rosehill R2), Hawker Hall Win (Rosehill R7), Exceed The Sale Win (Doomben R2), Missapprehend PLC (Caulfield R3)", odds: 42, result: "loss" },
-    { bet: "7-Leg AFL Multi: Fremantle H2H, Geelong H2H, Adelaide H2H, Port Adelaide H2H, North Melbourne H2H, Hawthorn H2H, Melbourne H2H", odds: 10.7, result: "loss" }
+    { bet: "7-Leg AFL Multi: Fremantle H2H, Geelong H2H, Adelaide H2H, Port Adelaide H2H, North Melbourne H2H, Hawthorn H2H, Melbourne H2H", odds: 10.7, result: "loss" },
+    { bet: "5-Leg Multi: Exceed The Sale PLC (Eagle Farm R4), Gram Win (Eagle Farm R6), Blue Door Win (Rosehill R8), Althoff Win (Rosehill R9), Yellow Jersey PLC (Caulfield R9)", odds: 22.06, result: "loss" }
   ],
 
   lastUpdated: "17 Jan 2026"
