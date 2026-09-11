@@ -12,8 +12,8 @@ const CONFIG = {
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Waiting for pick... ",
-    odds: 0
+    description: "4-Leg Win Multi: Gold Coast Belle (Flemington R9), Oliveanotherday (Flemington R7), Sheza Alibi (Flemington R8), St Gotthard (Rosehill R8)",
+    odds: 15
   },
 
   // Stake per week
