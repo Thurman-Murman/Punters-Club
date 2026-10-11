@@ -4,15 +4,21 @@
 
 const CONFIG = {
 
-  // 📅 Start Date - The Sunday Week 1 began
-  startDate: new Date(2026, 0, 18),
+  // 🏁 Current season number
+  season: 2,
+
+  // 📅 Start Date - The Sunday Week 1 of this season began
+  startDate: new Date(2026, 9, 11),
+
+  // 🎯 Who picks in Week 1 of this season (must match a name in rotation)
+  firstPicker: "Becksy",
 
   // 💰 Kitty
   kitty: 1825.00,
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Waiting for pick... ",
+    description: "Waiting for pick...",
     odds: 0
   },
 
@@ -39,45 +45,55 @@ const CONFIG = {
   // Notes
   notes: "$25 per week. Bank details: BSB 633-000 ACC 159785823",
 
-  // 📜 Past Bets History
+  // 📜 Past Bets History (current season only)
   pastBets: [
-    { bet: "Gold Coast - Wymark Place", odds: 2.88, result: "loss" },
-    { bet: "4-Leg Place Multi: Oak Hill (Caulfield R7), Yes I Know (Caulfield R10), How Much Better (Newcastle R6), Whinchat (Randwick R8)", odds: 3.15, result: "loss" },
-    { bet: "6-Leg SGM: Lakers @ Wizards - Doncic 25+ Pts, LeBron 20+ Pts, Lakers Win, Doncic 4+ Reb, Ayton 4+ Reb, LeBron 4+ Ast", odds: 2.66, result: "win" },
-    { bet: "3-Leg Win Multi: Guest House (Caulfield R3), Autumn Break (Randwick R2), Tempted (Randwick R8)", odds: 6.65, result: "loss" },
-    { bet: "5-Leg Win Multi: Immortal Star (Flemington R4), Apocalyptic (Randwick R6), Sabaj (Flemington R7), Tentyris (Flemington R8), Autumn Glow (Randwick R8)", odds: 36.98, result: "loss" },
-    { bet: "3-Leg Place Multi: Along The River (Caulfield R1), Yabby Pump (Rosehill R1), Shezain (Rosehill R2)", odds: 26.49, result: "loss" },
-    { bet: "13-Leg DC Multi: Brentford W/D, Liverpool W/D, Newcastle W/D, Man City W/D, Como W/D, Napoli W/D, Inter W/D, Barcelona Win, Atletico W/D, Leverkusen W/D, Hoffenheim W/D, Werder Bremen W/D, Bayern W/D", odds: 7.88, result: "loss" },
-    { bet: "Drumfire Win (Muswellbrook R2)", odds: 4.8, result: "win" },
-    { bet: "6-Leg Multi: Buckaroo PLC (Caulfield R8), Pembrey Win (Rosehill R3), Central Europe Win (Rosehill R4), Sixties Win (Rosehill R7), Lazzura PLC (Rosehill R8), Never Ordinary Win (Morphettville R1)", odds: 23.03, result: "loss" },
-    { bet: "2-Leg Multi: Immortal Star PLC (Caulfield R1), St Kilda H2H (vs GWS Giants)", odds: 4.65, result: "win" },
-    { bet: "3-Leg Win Multi: Litzdeel (Flemington R7), Barnavara (Rosehill R2), Aeliana (Rosehill R8)", odds: 6.5, result: "loss" },
-    { bet: "3-Leg Multi: Joliestar PLC (Randwick R7), Sheza Alibi Win (Randwick R8), Here To Shock PLC (Caulfield R9)", odds: 5.6, result: "loss" },
-    { bet: "8-Leg Multi: Lions H2H (vs North), Melbourne H2H (vs Essendon), Hawthorn +32.5 (vs Bulldogs), Geelong SGM (Cats H2H, Holmes 25+ Disp, Smith 25+ Disp), GWS H2H (vs Richmond), St Kilda H2H (vs Port)", odds: 4.65, result: "loss" },
-    { bet: "4-Leg Multi: Plaintiff Win (Randwick R4), Angel Capital PLC (Randwick R9), Balance The Books Win (Eagle Farm R2), Olympian PLC (Randwick R5)", odds: 9.5, result: "loss" },
-    { bet: "5-Leg Multi: Mcwoody Win (Morphettville R3), Silvasista Win (Flemington R6), Geelong H2H (vs Port), Fremantle H2H (vs Carlton), St Kilda H2H (vs West Coast)", odds: 10.59, result: "loss" },
-    { bet: "7-Leg Multi: Pistons H2H (vs Magic), Cavaliers H2H (vs Raptors), Lakers H2H (vs Rockets), Lions H2H (vs Essendon), West Coast H2H (vs Richmond), Geelong H2H (vs North), St Kilda H2H (vs Carlton)", odds: 18.81, result: "loss" },
-    { bet: "Hobart Quaddie: R5 (5,8,10,11), R6 (2,7,8,11), R7 (1,4,6,8), R8 (1,2,4,6) $25 Flexi 9.7% + Antisocial Win (Ballarat R5) $25", odds: 8, result: "win" },
-    { bet: "Under The Limit - Home Hill R6", odds: 4, result: "loss" },
-    { bet: "Gumdrops - Eagle Farm", odds: 9.5, result: "loss" },
-    { bet: "GWS, Brisbane, North Melbourne", odds: 3.42, result: "loss" },
-    { bet: "GWS, Brisbane, North Melbourne", odds: 3.42, result: "loss" },
-    { bet: "5-Leg Place Multi: Losesomewinmore (Flemington R7), Mongolian Gobi (Morphettville R9), Midnight Dynamite (Randwick R9), Flying Done (Flemington R9), Bustling (Randwick R8)", odds: 10.09, result: "loss" },
-    { bet: "7-Leg Multi: Carlton H2H (vs West Coast), Collingwood H2H (vs Richmond), Adelaide Crows H2H (vs Port), England Win-Draw-Win (vs Panama), Croatia Win-Draw-Win (vs Ghana), North Melbourne H2H (vs Essendon), Fremantle H2H (vs Gold Coast)", odds: 6.2, result: "loss" },
-    { bet: "3-Leg Multi: Omolong (Rosehill R3), Big Red Tequila (Rosehill R4), Hello Captain (Rosehill R5)", odds: 9, result: "win" },
-    { bet: "3-Leg Multi: Tazima Win (Randwick R7), Decalogue Win (Caulfield R6), Bellatrix Star Place (Caulfield R7)", odds: 27, result: "loss" },
-    { bet: "16-Leg SGM+: North v Melb (Sheezel 25+ Disp, Fitzgerald 25+ Disp, Bowey 20+ Disp, Sparrow 20+ Disp, van Rooyen 2+ Gls, Larkey 2+ Gls, Curtis 1+ Gl, Fritsch 1+ Gl) + Pies v Carlton (N.Daicos 30+ Disp, Walsh 25+ Disp, J.Daicos 20+ Disp, Cripps 22+ Disp, McStay 2+ Gls, Membrey 1+ Gl, McKay 1+ Gl, Kemp 1+ Gl)", odds: 43.87, result: "loss" },
-    { bet: "The Return of Max King", odds: 5, result: "loss" },
-    { bet: "Star of India", odds: 4.2, result: "loss" },
-    { bet: "Tarzino Rosehill", odds: 5, result: "loss" },
-    { bet: "4-Leg Multi: Steel Will Win (Rosehill R2), Hawker Hall Win (Rosehill R7), Exceed The Sale Win (Doomben R2), Missapprehend PLC (Caulfield R3)", odds: 42, result: "loss" },
-    { bet: "7-Leg AFL Multi: Fremantle H2H, Geelong H2H, Adelaide H2H, Port Adelaide H2H, North Melbourne H2H, Hawthorn H2H, Melbourne H2H", odds: 10.7, result: "loss" },
-    { bet: "5-Leg Multi: Exceed The Sale PLC (Eagle Farm R4), Gram Win (Eagle Farm R6), Blue Door Win (Rosehill R8), Althoff Win (Rosehill R9), Yellow Jersey PLC (Caulfield R9)", odds: 22.06, result: "loss" },
-    { bet: "8-Leg SGM+: Swans v Lions (Lions H2H, Dunkley 20+ Disp, Cameron 1+ Gl, Curnow 2+ Gls) + Crows v Bulldogs (Rankine 20+ Disp, Dawson 20+ Disp, Thilthorpe 2+ Gls, Crows H2H", odds: 6.31, result: "loss" },
-    { bet: "4-Leg Win Multi: Gold Coast Belle (Flemington R9), Oliveanotherday (Flemington R7), Sheza Alibi (Flemington R8), St Gotthard (Rosehill R8)", odds: 15, result: "loss" },
-    { bet: "4-Leg Place Multi: Ninja Top 2 (Randwick R9), Hawker Hall Top 3 (Randwick R10), Evaporate Top 2 (Caulfield R9), Cosmic Crusader Top 3 (Caulfield R7)", odds: 22.7, result: "loss" },
-    { bet: "AFL Multi", odds: 8, result: "loss" }
+
   ],
 
-  lastUpdated: "17 Jan 2026"
+  // 📦 Archived seasons (shown in expandable sections on the site)
+  archivedSeasons: [
+    {
+      name: "Season 1",
+      pastBets: [
+        { picker: "Smitty", bet: "Gold Coast - Wymark Place", odds: 2.88, result: "loss" },
+        { picker: "Bizza", bet: "4-Leg Place Multi: Oak Hill (Caulfield R7), Yes I Know (Caulfield R10), How Much Better (Newcastle R6), Whinchat (Randwick R8)", odds: 3.15, result: "loss" },
+        { picker: "Pukey", bet: "6-Leg SGM: Lakers @ Wizards - Doncic 25+ Pts, LeBron 20+ Pts, Lakers Win, Doncic 4+ Reb, Ayton 4+ Reb, LeBron 4+ Ast", odds: 2.66, result: "win" },
+        { picker: "Drowley", bet: "3-Leg Win Multi: Guest House (Caulfield R3), Autumn Break (Randwick R2), Tempted (Randwick R8)", odds: 6.65, result: "loss" },
+        { picker: "Semp", bet: "5-Leg Win Multi: Immortal Star (Flemington R4), Apocalyptic (Randwick R6), Sabaj (Flemington R7), Tentyris (Flemington R8), Autumn Glow (Randwick R8)", odds: 36.98, result: "loss" },
+        { picker: "Perka", bet: "3-Leg Place Multi: Along The River (Caulfield R1), Yabby Pump (Rosehill R1), Shezain (Rosehill R2)", odds: 26.49, result: "loss" },
+        { picker: "Becksy", bet: "13-Leg DC Multi: Brentford W/D, Liverpool W/D, Newcastle W/D, Man City W/D, Como W/D, Napoli W/D, Inter W/D, Barcelona Win, Atletico W/D, Leverkusen W/D, Hoffenheim W/D, Werder Bremen W/D, Bayern W/D", odds: 7.88, result: "loss" },
+        { picker: "Catta", bet: "Drumfire Win (Muswellbrook R2)", odds: 4.8, result: "win" },
+        { picker: "Robo", bet: "6-Leg Multi: Buckaroo PLC (Caulfield R8), Pembrey Win (Rosehill R3), Central Europe Win (Rosehill R4), Sixties Win (Rosehill R7), Lazzura PLC (Rosehill R8), Never Ordinary Win (Morphettville R1)", odds: 23.03, result: "loss" },
+        { picker: "Ruey", bet: "2-Leg Multi: Immortal Star PLC (Caulfield R1), St Kilda H2H (vs GWS Giants)", odds: 4.65, result: "win" },
+        { picker: "Smitty", bet: "3-Leg Win Multi: Litzdeel (Flemington R7), Barnavara (Rosehill R2), Aeliana (Rosehill R8)", odds: 6.5, result: "loss" },
+        { picker: "Bizza", bet: "3-Leg Multi: Joliestar PLC (Randwick R7), Sheza Alibi Win (Randwick R8), Here To Shock PLC (Caulfield R9)", odds: 5.6, result: "loss" },
+        { picker: "Pukey", bet: "8-Leg Multi: Lions H2H (vs North), Melbourne H2H (vs Essendon), Hawthorn +32.5 (vs Bulldogs), Geelong SGM (Cats H2H, Holmes 25+ Disp, Smith 25+ Disp), GWS H2H (vs Richmond), St Kilda H2H (vs Port)", odds: 4.65, result: "loss" },
+        { picker: "Drowley", bet: "4-Leg Multi: Plaintiff Win (Randwick R4), Angel Capital PLC (Randwick R9), Balance The Books Win (Eagle Farm R2), Olympian PLC (Randwick R5)", odds: 9.5, result: "loss" },
+        { picker: "Semp", bet: "5-Leg Multi: Mcwoody Win (Morphettville R3), Silvasista Win (Flemington R6), Geelong H2H (vs Port), Fremantle H2H (vs Carlton), St Kilda H2H (vs West Coast)", odds: 10.59, result: "loss" },
+        { picker: "Perka", bet: "7-Leg Multi: Pistons H2H (vs Magic), Cavaliers H2H (vs Raptors), Lakers H2H (vs Rockets), Lions H2H (vs Essendon), West Coast H2H (vs Richmond), Geelong H2H (vs North), St Kilda H2H (vs Carlton)", odds: 18.81, result: "loss" },
+        { picker: "Becksy", bet: "Hobart Quaddie: R5 (5,8,10,11), R6 (2,7,8,11), R7 (1,4,6,8), R8 (1,2,4,6) $25 Flexi 9.7% + Antisocial Win (Ballarat R5) $25", odds: 8, result: "win" },
+        { picker: "Catta", bet: "Under The Limit - Home Hill R6", odds: 4, result: "loss" },
+        { picker: "Robo", bet: "Gumdrops - Eagle Farm", odds: 9.5, result: "loss" },
+        { picker: "Ruey", bet: "GWS, Brisbane, North Melbourne", odds: 3.42, result: "loss" },
+        { picker: "Smitty", bet: "GWS, Brisbane, North Melbourne", odds: 3.42, result: "loss" },
+        { picker: "Bizza", bet: "5-Leg Place Multi: Losesomewinmore (Flemington R7), Mongolian Gobi (Morphettville R9), Midnight Dynamite (Randwick R9), Flying Done (Flemington R9), Bustling (Randwick R8)", odds: 10.09, result: "loss" },
+        { picker: "Pukey", bet: "7-Leg Multi: Carlton H2H (vs West Coast), Collingwood H2H (vs Richmond), Adelaide Crows H2H (vs Port), England Win-Draw-Win (vs Panama), Croatia Win-Draw-Win (vs Ghana), North Melbourne H2H (vs Essendon), Fremantle H2H (vs Gold Coast)", odds: 6.2, result: "loss" },
+        { picker: "Drowley", bet: "3-Leg Multi: Omolong (Rosehill R3), Big Red Tequila (Rosehill R4), Hello Captain (Rosehill R5)", odds: 9, result: "win" },
+        { picker: "Semp", bet: "3-Leg Multi: Tazima Win (Randwick R7), Decalogue Win (Caulfield R6), Bellatrix Star Place (Caulfield R7)", odds: 27, result: "loss" },
+        { picker: "Perka", bet: "16-Leg SGM+: North v Melb (Sheezel 25+ Disp, Fitzgerald 25+ Disp, Bowey 20+ Disp, Sparrow 20+ Disp, van Rooyen 2+ Gls, Larkey 2+ Gls, Curtis 1+ Gl, Fritsch 1+ Gl) + Pies v Carlton (N.Daicos 30+ Disp, Walsh 25+ Disp, J.Daicos 20+ Disp, Cripps 22+ Disp, McStay 2+ Gls, Membrey 1+ Gl, McKay 1+ Gl, Kemp 1+ Gl)", odds: 43.87, result: "loss" },
+        { picker: "Becksy", bet: "The Return of Max King", odds: 5, result: "loss" },
+        { picker: "Catta", bet: "Star of India", odds: 4.2, result: "loss" },
+        { picker: "Robo", bet: "Tarzino Rosehill", odds: 5, result: "loss" },
+        { picker: "Ruey", bet: "4-Leg Multi: Steel Will Win (Rosehill R2), Hawker Hall Win (Rosehill R7), Exceed The Sale Win (Doomben R2), Missapprehend PLC (Caulfield R3)", odds: 42, result: "loss" },
+        { picker: "Smitty", bet: "7-Leg AFL Multi: Fremantle H2H, Geelong H2H, Adelaide H2H, Port Adelaide H2H, North Melbourne H2H, Hawthorn H2H, Melbourne H2H", odds: 10.7, result: "loss" },
+        { picker: "Bizza", bet: "5-Leg Multi: Exceed The Sale PLC (Eagle Farm R4), Gram Win (Eagle Farm R6), Blue Door Win (Rosehill R8), Althoff Win (Rosehill R9), Yellow Jersey PLC (Caulfield R9)", odds: 22.06, result: "loss" },
+        { picker: "Pukey", bet: "8-Leg SGM+: Swans v Lions (Lions H2H, Dunkley 20+ Disp, Cameron 1+ Gl, Curnow 2+ Gls) + Crows v Bulldogs (Rankine 20+ Disp, Dawson 20+ Disp, Thilthorpe 2+ Gls, Crows H2H", odds: 6.31, result: "loss" },
+        { picker: "Drowley", bet: "4-Leg Win Multi: Gold Coast Belle (Flemington R9), Oliveanotherday (Flemington R7), Sheza Alibi (Flemington R8), St Gotthard (Rosehill R8)", odds: 15, result: "loss" },
+        { picker: "Semp", bet: "4-Leg Place Multi: Ninja Top 2 (Randwick R9), Hawker Hall Top 3 (Randwick R10), Evaporate Top 2 (Caulfield R9), Cosmic Crusader Top 3 (Caulfield R7)", odds: 22.7, result: "loss" },
+        { picker: "Perka", bet: "AFL Multi", odds: 8, result: "loss" }
+      ]
+    }
+  ],
+
+  lastUpdated: "11 Oct 2026"
 };
