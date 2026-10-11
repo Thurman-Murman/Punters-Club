@@ -254,8 +254,12 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.4; }
   <div class="card">
     <h2 class="section-title">General</h2>
 
-    <label>Start Date (Sunday Week 1 began)</label>
+    <label>Start Date (Sunday Week 1 begins)</label>
     <input type="date" id="startDate">
+
+    <label>First Picker (Week 1)</label>
+    <select id="firstPicker"></select>
+    <p class="hint" id="pickerPreview"></p>
 
     <div class="row">
       <div>
@@ -331,6 +335,17 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.4; }
       </div>
     </div>
     <button class="btn btn-secondary" id="addPastBetBtn" style="margin-top: 16px;">+ Add Past Bet</button>
+  </div>
+
+  <!-- Seasons -->
+  <div class="card">
+    <h2 class="section-title">🏁 Seasons</h2>
+    <p class="hint" style="margin-top:0;" id="seasonInfo"></p>
+    <div id="archiveList" style="margin-top: 12px;"></div>
+    <div class="btn-row">
+      <button class="btn btn-danger" id="endSeasonBtn">🏁 End Season &amp; Start New</button>
+    </div>
+    <p class="hint">Moves this season's past bets into an expandable archive on the site, restarts at Week 1 with a clean history, and resets this week's bet. Nothing goes live until you hit Save to GitHub.</p>
   </div>
 
   <!-- GitHub settings -->
@@ -432,6 +447,9 @@ let state = null;
 function initAdmin() {
   // Clone CONFIG into mutable state
   state = {
+    season: CONFIG.season || 1,
+    firstPicker: CONFIG.firstPicker || CONFIG.rotation[0],
+    archivedSeasons: (CONFIG.archivedSeasons || []).map(s => ({ name: s.name, pastBets: (s.pastBets || []).map(b => ({ ...b })) })),
     startDate: CONFIG.startDate instanceof Date ? CONFIG.startDate : new Date(CONFIG.startDate),
     kitty: CONFIG.kitty,
     stake: CONFIG.stake,
@@ -455,10 +473,16 @@ function initAdmin() {
 
   renderMembers();
   renderPastBets();
+  renderSeasons();
+  document.getElementById('firstPicker').addEventListener('change', e => {
+    state.firstPicker = e.target.value;
+    updatePickerPreview();
+  });
 
   // Event listeners
   document.getElementById('startDate').addEventListener('change', e => {
     state.startDate = new Date(e.target.value + 'T00:00:00');
+    updatePickerPreview();
   });
   document.getElementById('kitty').addEventListener('input', e => { state.kitty = parseFloat(e.target.value) || 0; });
   document.getElementById('stake').addEventListener('input', e => {
@@ -476,6 +500,7 @@ function initAdmin() {
   document.getElementById('addMemberBtn').addEventListener('click', addMember);
   document.getElementById('resetPaidBtn').addEventListener('click', resetPaid);
   document.getElementById('addPastBetBtn').addEventListener('click', addPastBet);
+  document.getElementById('endSeasonBtn').addEventListener('click', endSeason);
   document.getElementById('generateBtn').addEventListener('click', generateOutput);
   document.getElementById('copyBtn').addEventListener('click', copyOutput);
   document.getElementById('downloadBtn').addEventListener('click', downloadOutput);
@@ -519,6 +544,8 @@ function renderMembers() {
     `;
     container.appendChild(row);
   });
+
+  populateFirstPicker();
 
   // Wire toggles
   container.querySelectorAll('.toggle').forEach(t => {
@@ -625,6 +652,95 @@ function addPastBet() {
   showToast(`Added Week ${state.pastBets.length}: ${result.toUpperCase()}`);
 }
 
+function pickerOffset() {
+  return Math.max(0, state.rotation.indexOf(state.firstPicker));
+}
+
+function populateFirstPicker() {
+  const sel = document.getElementById('firstPicker');
+  if (!state.rotation.includes(state.firstPicker)) state.firstPicker = state.rotation[0] || '';
+  sel.innerHTML = state.rotation.map(n =>
+    `<option value="${escapeAttr(n)}" ${n === state.firstPicker ? 'selected' : ''}>${escapeHtml(n)}</option>`
+  ).join('');
+  updatePickerPreview();
+}
+
+function updatePickerPreview() {
+  const el = document.getElementById('pickerPreview');
+  if (!el) return;
+  const len = state.rotation.length;
+  if (!len) { el.textContent = ''; return; }
+  const week = calculateCurrentWeek();
+  const now = state.rotation[(pickerOffset() + week - 1) % len];
+  const later = new Date() < state.startDate;
+  el.textContent = later
+    ? `Season hasn't started yet — site will show "Starts ${formatDateForInput(state.startDate)}" with ${state.firstPicker} up first.`
+    : `Right now: Week ${week} → ${now} picks.`;
+}
+
+function renderSeasons() {
+  document.getElementById('seasonInfo').textContent =
+    `Current: Season ${state.season} · ${state.pastBets.length} week(s) logged`;
+  const list = document.getElementById('archiveList');
+  if (state.archivedSeasons.length === 0) {
+    list.innerHTML = '<p class="hint">No archived seasons yet.</p>';
+    return;
+  }
+  list.innerHTML = state.archivedSeasons.map(s => {
+    const w = s.pastBets.filter(b => b.result === 'win').length;
+    const l = s.pastBets.filter(b => b.result === 'loss').length;
+    return `<div class="past-bet-item" style="grid-template-columns: 1fr auto;">
+      <span class="desc">📦 ${escapeHtml(s.name)}</span>
+      <span class="odds">${s.pastBets.length} wks · ${w}W / ${l}L</span>
+    </div>`;
+  }).join('');
+}
+
+function endSeason() {
+  if (state.pastBets.length === 0) { showToast('No past bets to archive yet', 'error'); return; }
+  if (!confirm(`End Season ${state.season}?\n\nThis archives its ${state.pastBets.length} weeks and starts Season ${state.season + 1} at Week 1.`)) return;
+
+  const today = formatDateForInput(new Date());
+  const input = prompt(`Season ${state.season + 1} Week 1 start date (a Sunday), YYYY-MM-DD:`, today);
+  if (!input) return;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(input.trim())) { showToast('Date must look like 2026-10-11', 'error'); return; }
+  const newStart = new Date(input.trim() + 'T00:00:00');
+  if (isNaN(newStart.getTime())) { showToast('Invalid date', 'error'); return; }
+
+  // Archive with picker stored explicitly so history never shifts if rotation changes later
+  const len = state.rotation.length;
+  const off = pickerOffset();
+  const nextPicker = len ? state.rotation[(off + state.pastBets.length) % len] : '';
+  state.archivedSeasons.push({
+    name: `Season ${state.season}`,
+    pastBets: state.pastBets.map((b, i) => ({
+      picker: len ? state.rotation[(off + i) % len] : '',
+      bet: b.bet, odds: b.odds, result: b.result
+    }))
+  });
+
+  state.pastBets = [];
+  state.season += 1;
+  state.firstPicker = nextPicker; // rotation carries on; change the dropdown to override
+  state.startDate = newStart;
+  state.bet = { description: 'Waiting for pick...', odds: 0 };
+
+  document.getElementById('startDate').value = formatDateForInput(newStart);
+  populateFirstPicker();
+  document.getElementById('betDescription').value = state.bet.description;
+  document.getElementById('betOdds').value = 0;
+  updatePayoutPreview();
+
+  if (confirm('Also reset everyone to Unpaid?')) {
+    Object.keys(state.members).forEach(k => { state.members[k] = false; });
+    renderMembers();
+  }
+
+  renderPastBets();
+  renderSeasons();
+  showToast(`Season ${state.season} ready — hit Save to GitHub to publish`);
+}
+
 function buildConfigString() {
   const d = state.startDate;
   const startDateStr = `new Date(${d.getFullYear()}, ${d.getMonth()}, ${d.getDate()})`;
@@ -640,14 +756,27 @@ function buildConfigString() {
     return `    { bet: "${escapeStr(b.bet)}", odds: ${b.odds}, result: "${b.result}" }`;
   }).join(',\n');
 
+  const archiveLines = state.archivedSeasons.map(s => {
+    const inner = s.pastBets.map(b =>
+      `        { picker: "${escapeStr(b.picker || '')}", bet: "${escapeStr(b.bet)}", odds: ${b.odds}, result: "${b.result}" }`
+    ).join(',\n');
+    return `    {\n      name: "${escapeStr(s.name)}",\n      pastBets: [\n${inner}\n      ]\n    }`;
+  }).join(',\n');
+
   return `// ============================================================
 // 🔧 PUNTERS CLUB CONFIG - Generated by admin.html 🔧
 // ============================================================
 
 const CONFIG = {
 
-  // 📅 Start Date - The Sunday Week 1 began
+  // 🏁 Current season number
+  season: ${state.season},
+
+  // 📅 Start Date - The Sunday Week 1 of this season began
   startDate: ${startDateStr},
+
+  // 🎯 Who picks in Week 1 of this season
+  firstPicker: "${escapeStr(state.firstPicker || '')}",
 
   // 💰 Kitty
   kitty: ${state.kitty.toFixed(2)},
@@ -672,9 +801,14 @@ ${memberLines}
   // Notes
   notes: "${escapeStr(state.notes)}",
 
-  // 📜 Past Bets History
+  // 📜 Past Bets History (current season only)
   pastBets: [
 ${pastBetLines}
+  ],
+
+  // 📦 Archived seasons (shown in expandable sections on the site)
+  archivedSeasons: [
+${archiveLines}
   ],
 
   lastUpdated: "${escapeStr(state.lastUpdated)}"
