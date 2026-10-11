@@ -8,10 +8,10 @@ const CONFIG = {
   season: 2,
 
   // 📅 Start Date - The Sunday Week 1 of this season began
-  startDate: new Date(2026, 9, 31),
+  startDate: new Date(2026, 9, 11),
 
-  // 🎯 Who picks in Week 1 of this season
-  firstPicker: "Catta",
+  // 🎯 Who picks in Week 1 of this season (must match a name in rotation)
+  firstPicker: "Becksy",
 
   // 💰 Kitty
   kitty: 1825.00,
@@ -90,7 +90,7 @@ const CONFIG = {
         { picker: "Pukey", bet: "8-Leg SGM+: Swans v Lions (Lions H2H, Dunkley 20+ Disp, Cameron 1+ Gl, Curnow 2+ Gls) + Crows v Bulldogs (Rankine 20+ Disp, Dawson 20+ Disp, Thilthorpe 2+ Gls, Crows H2H", odds: 6.31, result: "loss" },
         { picker: "Drowley", bet: "4-Leg Win Multi: Gold Coast Belle (Flemington R9), Oliveanotherday (Flemington R7), Sheza Alibi (Flemington R8), St Gotthard (Rosehill R8)", odds: 15, result: "loss" },
         { picker: "Semp", bet: "4-Leg Place Multi: Ninja Top 2 (Randwick R9), Hawker Hall Top 3 (Randwick R10), Evaporate Top 2 (Caulfield R9), Cosmic Crusader Top 3 (Caulfield R7)", odds: 22.7, result: "loss" },
-        { picker: "Perka", bet: "AFL Multi", odds: 8, result: "loss" }
+        { picker: "Perka", bet: "AFL Multi", odds: 8, result: "loss" },
         { picker: "Becksy", bet: "NFL Multi", odds: 15, result: "loss" }
       ]
     }
