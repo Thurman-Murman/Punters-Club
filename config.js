@@ -91,6 +91,7 @@ const CONFIG = {
         { picker: "Drowley", bet: "4-Leg Win Multi: Gold Coast Belle (Flemington R9), Oliveanotherday (Flemington R7), Sheza Alibi (Flemington R8), St Gotthard (Rosehill R8)", odds: 15, result: "loss" },
         { picker: "Semp", bet: "4-Leg Place Multi: Ninja Top 2 (Randwick R9), Hawker Hall Top 3 (Randwick R10), Evaporate Top 2 (Caulfield R9), Cosmic Crusader Top 3 (Caulfield R7)", odds: 22.7, result: "loss" },
         { picker: "Perka", bet: "AFL Multi", odds: 8, result: "loss" }
+        { picker: "Becksy", bet: "NFL Multi", odds: 15, result: "loss" }
       ]
     }
   ],
