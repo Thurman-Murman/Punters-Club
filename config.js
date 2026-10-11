@@ -8,10 +8,10 @@ const CONFIG = {
   season: 2,
 
   // 📅 Start Date - The Sunday Week 1 of this season began
-  startDate: new Date(2026, 9, 11),
+  startDate: new Date(2026, 10, 1),
 
-  // 🎯 Who picks in Week 1 of this season (must match a name in rotation)
-  firstPicker: "Becksy",
+  // 🎯 Who picks in Week 1 of this season
+  firstPicker: "Catta",
 
   // 💰 Kitty
   kitty: 1825.00,
