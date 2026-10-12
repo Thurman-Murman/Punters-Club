@@ -14,7 +14,7 @@ const CONFIG = {
   firstPicker: "Catta",
 
   // 💰 Kitty
-  kitty: 1825.00,
+  kitty: 2640.00,
 
   // 🎯 This Week's Bet
   bet: {
