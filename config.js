@@ -14,7 +14,7 @@ const CONFIG = {
   firstPicker: "Catta",
 
   // 💰 Kitty
-  kitty: 2640.00,
+  kitty: 3365.00,
 
   // 🎯 This Week's Bet
   bet: {
@@ -47,7 +47,7 @@ const CONFIG = {
 
   // 📜 Past Bets History (current season only)
   pastBets: [
-
+    { bet: "Cosmic Crusader @ Flemington R8", odds: 4, result: "loss" }
   ],
 
   // 📦 Archived seasons (shown in expandable sections on the site)
