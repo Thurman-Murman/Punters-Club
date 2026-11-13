@@ -18,8 +18,8 @@ const CONFIG = {
 
   // 🎯 This Week's Bet
   bet: {
-    description: "Waiting for pick...",
-    odds: 0
+    description: "6-Leg Win Multi: Concord Connie (Sandown R10), The Grey One (Doomben R2), All Kinds Of Folk (Doomben R10), It'sanotherbattle (Morphettville R6), Westbound (Ascot R5), Cinque Stelle (Ascot R6)",
+    odds: 25.03
   },
 
   // Stake per week
