@@ -18,8 +18,8 @@ const CONFIG = {
 
   // 🎯 This Week's Bet
   bet: {
-    description: "6-Leg Win Multi: Concord Connie (Sandown R10), The Grey One (Doomben R2), All Kinds Of Folk (Doomben R10), It'sanotherbattle (Morphettville R6), Westbound (Ascot R5), Cinque Stelle (Ascot R6)",
-    odds: 25.03
+    description: "5-Leg Win Multi: Horseshoe Hill (Kembla Grange R4), Graffiti Tycoon (Kembla Grange R5), Jenni Multabella (Cranbourne R6), Gringotts (Kembla Grange R8), Cosmic Crusader (Ascot R9)",
+    odds: 34.36
   },
 
   // Stake per week
@@ -47,7 +47,8 @@ const CONFIG = {
 
   // 📜 Past Bets History (current season only)
   pastBets: [
-    { bet: "Cosmic Crusader @ Flemington R8", odds: 4, result: "loss" }
+    { bet: "Cosmic Crusader @ Flemington R8", odds: 4, result: "loss" },
+    { bet: "6-Leg Win Multi: Concord Connie (Sandown R10), The Grey One (Doomben R2), All Kinds Of Folk (Doomben R10), It'sanotherbattle (Morphettville R6), Westbound (Ascot R5), Cinque Stelle (Ascot R6)", odds: 25.03, result: "loss" }
   ],
 
   // 📦 Archived seasons (shown in expandable sections on the site)
