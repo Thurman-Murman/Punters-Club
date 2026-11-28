@@ -18,8 +18,8 @@ const CONFIG = {
 
   // 🎯 This Week's Bet
   bet: {
-    description: "5-Leg Win Multi: Horseshoe Hill (Kembla Grange R4), Graffiti Tycoon (Kembla Grange R5), Jenni Multabella (Cranbourne R6), Gringotts (Kembla Grange R8), Cosmic Crusader (Ascot R9)",
-    odds: 34.36
+    description: "4-Leg Win Multi: Cavill Avenue (Sandown R6), Roselyn's Star (Rosehill R7), Glorious Moments (Rosehill R8), Paltrow Miss (Rosehill R9)",
+    odds: 24.38
   },
 
   // Stake per week
